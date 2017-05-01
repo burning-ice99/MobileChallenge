@@ -1,20 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.iceprojects.currencytest.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingEnd="5dp"
+            android:hint="Amount"
+            android:textColor="#051B40"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:textColorHint="#051B40"
+            android:inputType="numberDecimal"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:fontFamily="serif-monospace"
+            android:maxWidth="@dimen/abc_action_bar_content_inset_material"
+            android:nestedScrollingEnabled="false"/>
+    </android.support.design.widget.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear"
+        android:weightSum="3"
+        android:gravity="center"
+        android:layout_below="@id/input_amount">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:id="@+id/button"
+            android:text="Check"
+            android:layout_margin="5dp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:id="@+id/currencySpinner">
+
+        </Spinner>
+    </LinearLayout>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView"
+        android:gravity="center"
+        android:layout_below="@id/linear"
+        android:stretchMode="columnWidth"
+        android:numColumns="3"
+        android:columnWidth="50dp"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="5dp">
+
+    </GridView>
+
+</RelativeLayout>
